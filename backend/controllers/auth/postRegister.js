@@ -23,8 +23,6 @@ const postRegister = async (req, res) => {
       password: encryptedPassword,
     });
 
-    console.log();
-
     // create JWT token
     const token = jwt.sign(
       {
