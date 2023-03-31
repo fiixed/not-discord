@@ -12,7 +12,8 @@ const LoginPage = () => {
   const [isFormValid, setIsFormValid] = useState(false);
 
   const handleLogin = () => {
-    console.log("");
+    console.log(mail);
+    console.log(password);
   };
 
   useEffect(() => {
