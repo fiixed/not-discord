@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AuthBox from "../../shared/components/AuthBox";
 import LoginPageFooter from "./LoginPageFooter";
 import LoginPageHeader from "./LoginPageHeader";
 import LoginPageInputs from "./LoginPageInputs";
-import { useHistory } from "react-router-dom";
+
+import { validateLoginForm } from "../../shared/utils/validators";
 
 const LoginPage = () => {
   const [mail, setMail] = useState("");
@@ -14,6 +15,10 @@ const LoginPage = () => {
     console.log("");
   };
 
+  useEffect(() => {
+    setIsFormValid(validateLoginForm({ mail, password }));
+  }, [mail, password, setIsFormValid]);
+
   return (
     <AuthBox>
       <LoginPageHeader />
@@ -23,7 +28,7 @@ const LoginPage = () => {
         password={password}
         setPassword={setPassword}
       />
-      <LoginPageFooter isFormValid={isFormValid} handleLogin={handleLogin}/>
+      <LoginPageFooter isFormValid={isFormValid} handleLogin={handleLogin} />
     </AuthBox>
   );
 };
