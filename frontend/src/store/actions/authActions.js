@@ -22,7 +22,7 @@ const setUserDetails = (userDetails) => {
 };
 
 const login = (userDetails, navigate) => {
-  return async (dispatch) => {
+  return async (dispatch) => {  // dispatch available through thunk
     const response = await api.login(userDetails);
     console.log(response);
     if (response.error) {
@@ -38,7 +38,7 @@ const login = (userDetails, navigate) => {
 };
 
 const register = (userDetails, navigate) => {
-  return async (dispatch) => {
+  return async (dispatch) => {  //
     const response = await api.register(userDetails);
     console.log(response);
     if (response.error) {
