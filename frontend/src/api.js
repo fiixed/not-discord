@@ -12,9 +12,8 @@ apiClient.interceptors.request.use(
 
     if (userDetails) {
       const token = JSON.parse(userDetails).token;
-      config.headers.Authorization = `Bearer ${token}`;
+      config.headers.Authorization = `Bearer ${token}`;  // adds JWT token to header
     }
-
     return config;
   },
   (err) => {
