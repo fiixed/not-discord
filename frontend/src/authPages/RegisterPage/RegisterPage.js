@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { getActions } from "../../store/actions/authActions";
 import { useNavigate } from "react-router-dom";
 
-const RegisterPage = ({ register }) => {
+const RegisterPage = ({ register }) => {  // register action from mapActionToProps
   const navigate = useNavigate();
 
   const [mail, setMail] = useState("");
@@ -23,8 +23,7 @@ const RegisterPage = ({ register }) => {
       password,
       username,
     };
-
-    //register(userDetails, navigate);
+    register(userDetails, navigate);
   };
 
   useEffect(() => {
@@ -58,4 +57,10 @@ const RegisterPage = ({ register }) => {
   );
 };
 
-export default RegisterPage;
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+  };
+};
+
+export default connect(null, mapActionsToProps)(RegisterPage);
