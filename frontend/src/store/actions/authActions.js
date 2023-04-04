@@ -10,6 +10,7 @@ export const getActions = (dispatch) => {
     login: (userDetails, navigate) => dispatch(login(userDetails, navigate)),
     register: (userDetails, navigate) =>
       dispatch(register(userDetails, navigate)),
+    setUserDetails: (userDetails) => dispatch(setUserDetails(userDetails)),
   };
 };
 
@@ -22,7 +23,8 @@ const setUserDetails = (userDetails) => {
 };
 
 const login = (userDetails, navigate) => {
-  return async (dispatch) => {  // dispatch available through thunk
+  return async (dispatch) => {
+    // dispatch available through thunk
     const response = await api.login(userDetails);
     console.log(response);
     if (response.error) {
@@ -38,7 +40,8 @@ const login = (userDetails, navigate) => {
 };
 
 const register = (userDetails, navigate) => {
-  return async (dispatch) => {  //
+  return async (dispatch) => {
+    //
     const response = await api.register(userDetails);
     console.log(response);
     if (response.error) {
