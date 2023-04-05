@@ -11,7 +11,6 @@ let socket = null;
 export const connectWithSocketServer = (userDetails) => {
   const jwtToken = userDetails.token;
 
-  console.log(jwtToken);
   socket = io(
     "http://localhost:5002",
 

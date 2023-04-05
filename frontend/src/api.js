@@ -1,5 +1,4 @@
 import axios from "axios";
-import { logout } from "./shared/utils/auth";
 
 const apiClient = axios.create({
   baseURL: "http://localhost:5002/api",
@@ -12,7 +11,7 @@ apiClient.interceptors.request.use(
 
     if (userDetails) {
       const token = JSON.parse(userDetails).token;
-      config.headers.Authorization = `Bearer ${token}`;  // adds JWT token to header
+      config.headers.Authorization = `Bearer ${token}`; // adds JWT token to header
     }
     return config;
   },
@@ -47,10 +46,10 @@ export const register = async (data) => {
 
 // secure routes
 
-const checkResponseCode = (exception) => {
-  const responseCode = exception.response.status;
+// const checkResponseCode = (exception) => {
+//   const responseCode = exception.response.status;
 
-  if (responseCode) {
-    (responseCode === 401 || responseCode === 403) && logout();
-  }
-};
+//   if (responseCode) {
+//     (responseCode === 401 || responseCode === 403) && logout();
+//   }
+// };
