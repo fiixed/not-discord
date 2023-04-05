@@ -3,9 +3,9 @@ const http = require("http");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
-
-const authRoutes = require('./routes/authRoutes');
 const socketServer = require("./socketServer");
+const authRoutes = require('./routes/authRoutes');
+
 
 const PORT = process.env.PORT || process.env.API_PORT;
 
