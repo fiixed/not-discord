@@ -31,14 +31,14 @@ const AddFriendDialog = ({
   }, [mail, setIsFormValid]);
 
   return (
-    <div>
+    <>
       <Dialog open={isDialogOpen} onClose={handleCloseDialog}>
         <DialogTitle>
           <Typography>Invite a Friend</Typography>
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            <Typography>
+            <Typography as="span">
               Enter e-mail address of friend which you would like to invite
             </Typography>
           </DialogContentText>
@@ -63,7 +63,7 @@ const AddFriendDialog = ({
           />
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 };
 
