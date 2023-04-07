@@ -1,14 +1,14 @@
 const connectedUsers = new Map();
 
-// let io = null;
+let io = null;
 
-// const setSocketServerInstance = (ioInstance) => {
-//   io = ioInstance;
-// };
+const setSocketServerInstance = (ioInstance) => {
+  io = ioInstance;
+};
 
-// const getSocketServerInstance = () => {
-//   return io;
-// };
+const getSocketServerInstance = () => {
+  return io;
+};
 
 const addNewConnectedUser = ({ socketId, userId }) => {
   connectedUsers.set(socketId, { userId });
@@ -50,7 +50,7 @@ module.exports = {
   addNewConnectedUser,
   removeConnectedUser,
   getActiveConnections,
-//   setSocketServerInstance,
-//   getSocketServerInstance,
+  setSocketServerInstance,
+  getSocketServerInstance,
   getOnlineUsers,
 };

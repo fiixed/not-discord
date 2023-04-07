@@ -1,3 +1,5 @@
+//SocketIO client event Listeners for realtime friends invitations
+
 const User = require("../../models/user");
 const FriendInvitation = require("../../models/friendInvitation");
 const serverStore = require("../../serverStore");
@@ -11,6 +13,7 @@ const updateFriendsPendingInvitations = async (userId) => {
     // find all active connections of specific userId
     const receiverList = serverStore.getActiveConnections(userId);
 
+    // get io to emit events
     const io = serverStore.getSocketServerInstance();
 
     receiverList.forEach((receiverSocketId) => {
