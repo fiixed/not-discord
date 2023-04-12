@@ -13,7 +13,6 @@ const updateFriendsPendingInvitations = async (userId) => {
     // find all active connections of specific userId
     const receiverList = serverStore.getActiveConnections(userId);
 
-    // get io to emit events
     const io = serverStore.getSocketServerInstance();
 
     receiverList.forEach((receiverSocketId) => {
