@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const postLogin = async (req, res) => {
   try {
+    console.log("login event came");
     const { mail, password } = req.body;
 
     const user = await User.findOne({ mail: mail.toLowerCase() });
@@ -26,13 +27,14 @@ const postLogin = async (req, res) => {
           mail: user.mail,
           token: token,
           username: user.username,
+          _id: user._id,
         },
       });
     }
 
     return res.status(400).send("Invalid credentials. Please try again");
-  } catch (error) {
-    return res.status(500).send("Somethign went wrong. Please try again");
+  } catch (err) {
+    return res.status(500).send("Something went wrong. Please try again");
   }
 };
 

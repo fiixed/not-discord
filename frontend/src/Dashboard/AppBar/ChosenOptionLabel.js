@@ -6,7 +6,7 @@ const ChosenOptionLabel = ({ name }) => {
   return (
     <Typography
       sx={{ fontSize: "16px", color: "white", fontWeight: "bold" }}
-    >{`${name ? `Chosen conversation: ${name}` : ""}`}</Typography>
+    >{`${name ? `${name}` : ""}`}</Typography>
   );
 };
 
