@@ -15,7 +15,6 @@ export const getActions = (dispatch) => {
 };
 
 const setUserDetails = (userDetails) => {
-  // sets user details in store
   return {
     type: authActions.SET_USER_DETAILS,
     userDetails,
@@ -24,13 +23,12 @@ const setUserDetails = (userDetails) => {
 
 const login = (userDetails, navigate) => {
   return async (dispatch) => {
-    // dispatch available through thunk
     const response = await api.login(userDetails);
     console.log(response);
     if (response.error) {
-      dispatch(openAlertMessage(response.exception.response.data));
+      dispatch(openAlertMessage(response?.exception?.response?.data));
     } else {
-      const { userDetails } = response.data;
+      const { userDetails } = response?.data;
       localStorage.setItem("user", JSON.stringify(userDetails));
 
       dispatch(setUserDetails(userDetails));
@@ -41,13 +39,12 @@ const login = (userDetails, navigate) => {
 
 const register = (userDetails, navigate) => {
   return async (dispatch) => {
-    //
     const response = await api.register(userDetails);
     console.log(response);
     if (response.error) {
-      dispatch(openAlertMessage(response.exception.response.data));
+      dispatch(openAlertMessage(response?.exception?.response?.data));
     } else {
-      const { userDetails } = response.data;
+      const { userDetails } = response?.data;
       localStorage.setItem("user", JSON.stringify(userDetails));
 
       dispatch(setUserDetails(userDetails));
