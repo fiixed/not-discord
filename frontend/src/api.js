@@ -1,9 +1,8 @@
 import axios from "axios";
 import { logout } from "./shared/utils/auth";
 
-
 const apiClient = axios.create({
-  baseURL: "https://not-discord.onrender.com:10000/api",
+  baseURL: "https://not-discord.onrender.com/api",
   timeout: 1000,
 });
 
